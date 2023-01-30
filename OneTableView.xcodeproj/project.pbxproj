@@ -12,6 +12,7 @@
 		D173508F2982C1C5007D8C27 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D173508E2982C1C5007D8C27 /* CustomButton.swift */; };
 		D184180A2918C0E800D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
 		D184180B2918C0E900D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
+		D184CDC929868EA300A0AE1C /* SchoolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */; };
 		D1890FCB2917CCA50042E867 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1890FCA2917CCA50042E867 /* Joke.swift */; };
 		D1B6861E297ECB3100998587 /* SecondVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2D2802976D04500CEF464 /* SecondVController.swift */; };
 		D1B6861F297ECB3100998587 /* SecondVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2D2802976D04500CEF464 /* SecondVController.swift */; };
@@ -57,6 +58,7 @@
 		899F2D39EA682B0864C291B3 /* Pods-OneTableView-OneTableViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneTableView-OneTableViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneTableView-OneTableViewUITests/Pods-OneTableView-OneTableViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE48EA134439BEF8BA1AC3B0 /* Pods-OneTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneTableView.debug.xcconfig"; path = "Target Support Files/Pods-OneTableView/Pods-OneTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		D173508E2982C1C5007D8C27 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1890FCA2917CCA50042E867 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		D1B68620297ECDCC00998587 /* SchoolDirectoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDirectoryAPI.swift; sourceTree = "<group>"; };
 		D1B68622297EDDE200998587 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				D173508E2982C1C5007D8C27 /* CustomButton.swift */,
+				D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				D1B68626297EDE1600998587 /* School.swift in Sources */,
 				D1890FCB2917CCA50042E867 /* Joke.swift in Sources */,
 				D173508F2982C1C5007D8C27 /* CustomButton.swift in Sources */,
+				D184CDC929868EA300A0AE1C /* SchoolCollectionViewCell.swift in Sources */,
 				D1E2D2812976D04500CEF464 /* SecondVController.swift in Sources */,
 				D1B68623297EDDE200998587 /* DataError.swift in Sources */,
 				D1D9DAC22913E6B60021DF57 /* SceneDelegate.swift in Sources */,

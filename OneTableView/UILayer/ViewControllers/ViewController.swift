@@ -12,6 +12,13 @@ import Combine
 
 class ViewController: UIViewController {
     
+    private struct Constants {
+        static let cellIdentifier: String = "schoolCell"
+        static let cellHeight: CGFloat = 100
+        static let sectionHeaderIdentifier: String = "sectionHeader"
+        static let sectionHeight: CGFloat = 50
+    }
+    
     //Schools ViewModel
     private let schoolsViewModel: SchoolsViewModel = SchoolsViewModel()
     
@@ -25,9 +32,33 @@ class ViewController: UIViewController {
     //Cancellable for Combine
     private var cancellables = Set<AnyCancellable>()
     
+    private var collectionView: UICollectionView?
     
 
-      
+    private func setupCollectionView() {
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.itemSize = CGSize(width: view.frame.size.width, height: Constants.cellHeight)
+        
+        collectionViewLayout.headerReferenceSize = CGSize(width: view.frame.size.width, height: Constants.sectionHeight)
+        collectionViewLayout.scrollDirection = .vertical
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionViewLayout)
+        
+        guard let collectionView = collectionView else {
+            return
+        }
+
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        collectionView.backgroundColor = .white
+        collectionView.alwaysBounceVertical = true
+        collectionView.register(SchoolCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+   
     
     private var button: UIButton = {
         let uiButton = UIButton()
@@ -38,35 +69,16 @@ class ViewController: UIViewController {
         return uiButton
     }()
     
-    private var uiTextView: UITextView = {
-        let uitextView = UITextView()
-        uitextView.backgroundColor = .orange
-        uitextView.layer.borderColor = UIColor.black.cgColor
-        uitextView.layer.borderWidth = 1.0
-        return uitextView
-    }()
-    
-    private var UITextVieww: UITextView = {
-        let UITextVieww = UITextView()
-        UITextVieww.backgroundColor = .blue
-        return UITextVieww
-    }()
-    
-    private var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.backgroundColor = .systemBackground
-        return tableView
-        
-    }()
-    
-   
-    
     
     private func setupBinders() {
         schoolsViewModel.$schools.receive(on: RunLoop.main)
             .sink { schools in
+               
                     print("retrieved \(schools.count)")
-                self.items = schools
+               // self.items = schools
+                    self.collectionView?.reloadData()
+                
+                    
             }
 //            .sink {  schools in
 //            if let schools = schools {
@@ -91,11 +103,6 @@ class ViewController: UIViewController {
     }
     
     
- 
-    
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //by using closures
@@ -115,7 +122,6 @@ class ViewController: UIViewController {
 //            }
 //      }
         
-        
 
 //        let api:SchoolAPILogic = SchoolAPI()
 //        api.getSchools { result in
@@ -134,26 +140,18 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Welcome project"
         navigationController?.navigationBar.prefersLargeTitles = true
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(MyCell.self, forCellReuseIdentifier: "cell")
-        view.addSubview(tableView)
         view.addSubview(button)
         bottomCustomButton.setupButton()
         addActionToCustomButton()
         bottomCustomButton.setTitle("Hello", for: .normal)
         view.addSubview(bottomCustomButton)
         
-      //  view.addSubview(uiTextView)
-        
-        
-        tableView.snp.makeConstraints {
-            $0.top.left.right.equalTo(view.safeAreaLayoutGuide)
-            $0.bottom.equalTo(button.snp.top)
-        }
-    
+
         button.snp.makeConstraints {
-            $0.top.equalTo(tableView.snp.bottom)
+            
+            if let collectionView = collectionView {
+                $0.top.equalTo(collectionView.snp.bottom)
+            }
             $0.left.right.equalTo(view.safeAreaLayoutGuide).inset(10)
 //            $0.bottom.equalToSuperview().inset(100)
             $0.bottom.equalTo(bottomCustomButton.snp.top).offset(-20)
@@ -170,9 +168,9 @@ class ViewController: UIViewController {
         
         addActionBlueButton()
         
-        addCellItem()
-        
         schoolsViewModel.getSchools()
+        
+        setupCollectionView()
         
         setupBinders()
         
@@ -182,10 +180,7 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(moveNextPage), for: .touchUpInside)
     }
     
-    func addCellItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add cell", style: .plain, target: self, action: #selector(addCell))
-        
-    }
+   
     
     func addActionToCustomButton() {
         bottomCustomButton.addTarget(self, action: #selector(bottomButtonTapped), for: .touchUpInside)
@@ -202,125 +197,41 @@ class ViewController: UIViewController {
         bottomCustomButton.shake()
     }
     
-    @objc func addCell() {
-      //  items.append("\(items.count + 1)")
-        tableView.reloadData()
-    }
     
-//    @objc func buttonPressed() {
-//        if uiTextView.text.isEmpty {
-//
-//            uiTextView.layer.borderColor = UIColor.red.cgColor
-//            uiTextView.layer.borderWidth = 10.0
-//
-//        var alertController = UIAlertController(title: "Warning", message: "You tapped it", preferredStyle: .alert)
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
-//            (action) in
-//
-//        }
-//        alertController.addAction(cancelAction)
-//
-//
-//        let OKAction = UIAlertAction(title: "OK", style: .destructive) { [self] (action) in
-//            self.uiTextView.layer.borderWidth = 1.0
-//        }
-//
-//        alertController.addAction(OKAction)
-//
-//        present(alertController, animated: true)
-//        }
-//    }
-//
+
     
 }
-//
-//extension ViewController: UITextViewDelegate {
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        print("editing started in address text view")
-//        uiTextView.layer.borderColor = UIColor.green.cgColor
-//        uiTextView.layer.borderWidth = 10.0
-//    }
-//
-//    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//        print("should change text in \(text)")
-//
-//        return true
-//    }
-//
-//}
 
-extension ViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rootVC = SecondViewController()
-        let navVC = UINavigationController(rootViewController: rootVC)
-        present(navVC, animated: true)
-        print("did select item \(items[indexPath.row].dbn)")
-    }
+
+
+
+
+
+
+extension ViewController: UICollectionViewDataSource {
     
-    
-    
-        
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete") { _,_,handler in
-            self.items.remove(at: indexPath.row)
-            tableView.reloadData()
-            handler(true)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? SchoolCollectionViewCell else {
+            return UICollectionViewCell()
         }
-        return UISwipeActionsConfiguration(actions: [action])
-    }
-    
-    
-}
-
-extension ViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyCell
-        cell.label.text = "The row number is: " + items[indexPath.row].dbn
+        
+        let schools = schoolsViewModel.schools[indexPath.item]
+        cell.populate(schools)
         return cell
     }
     
-    
-}
-
-
-class MyCell: UITableViewCell {
-    
-    let label: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .systemBackground
-
-        
-        contentView.addSubview(label)
-        label.snp.makeConstraints {
-            $0.size.equalTo(100)
-            $0.edges.equalTo(UIEdgeInsets(top: 0, left: 30, bottom:0 , right: 0))
-        }
-        
-        
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return schoolsViewModel.schools.count
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }
 
-
-class SecondViewController: UIViewController {
+extension ViewController: UICollectionViewDelegate {
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemRed
-        title = "Fuck You"
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
 }
