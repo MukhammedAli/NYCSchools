@@ -13,7 +13,9 @@
 		D184180A2918C0E800D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
 		D184180B2918C0E900D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
 		D184CDC929868EA300A0AE1C /* SchoolCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */; };
+		D184CDCB2987AB0E00A0AE1C /* SchoolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D184CDCA2987AB0E00A0AE1C /* SchoolSection.swift */; };
 		D1890FCB2917CCA50042E867 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1890FCA2917CCA50042E867 /* Joke.swift */; };
+		D1A1D8722987E828003AC5EB /* SchoolsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A1D8712987E828003AC5EB /* SchoolsSectionHeaderView.swift */; };
 		D1B6861E297ECB3100998587 /* SecondVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2D2802976D04500CEF464 /* SecondVController.swift */; };
 		D1B6861F297ECB3100998587 /* SecondVController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2D2802976D04500CEF464 /* SecondVController.swift */; };
 		D1B68621297ECDCC00998587 /* SchoolDirectoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B68620297ECDCC00998587 /* SchoolDirectoryAPI.swift */; };
@@ -59,7 +61,9 @@
 		CE48EA134439BEF8BA1AC3B0 /* Pods-OneTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneTableView.debug.xcconfig"; path = "Target Support Files/Pods-OneTableView/Pods-OneTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		D173508E2982C1C5007D8C27 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolCollectionViewCell.swift; sourceTree = "<group>"; };
+		D184CDCA2987AB0E00A0AE1C /* SchoolSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSection.swift; sourceTree = "<group>"; };
 		D1890FCA2917CCA50042E867 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		D1A1D8712987E828003AC5EB /* SchoolsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolsSectionHeaderView.swift; sourceTree = "<group>"; };
 		D1B68620297ECDCC00998587 /* SchoolDirectoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDirectoryAPI.swift; sourceTree = "<group>"; };
 		D1B68622297EDDE200998587 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		D1B68625297EDE1600998587 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 			children = (
 				D173508E2982C1C5007D8C27 /* CustomButton.swift */,
 				D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */,
+				D1A1D8712987E828003AC5EB /* SchoolsSectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B68625297EDE1600998587 /* School.swift */,
+				D184CDCA2987AB0E00A0AE1C /* SchoolSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 				D1B68629298006F900998587 /* SchoolsViewModel.swift in Sources */,
 				D1D9DAC42913E6B60021DF57 /* ViewController.swift in Sources */,
 				D1B68621297ECDCC00998587 /* SchoolDirectoryAPI.swift in Sources */,
+				D1A1D8722987E828003AC5EB /* SchoolsSectionHeaderView.swift in Sources */,
 				D1E2D2832978458A00CEF464 /* ThirdController.swift in Sources */,
 				D1D9DAC02913E6B60021DF57 /* AppDelegate.swift in Sources */,
 				D1B68626297EDE1600998587 /* School.swift in Sources */,
@@ -499,6 +506,7 @@
 				D173508F2982C1C5007D8C27 /* CustomButton.swift in Sources */,
 				D184CDC929868EA300A0AE1C /* SchoolCollectionViewCell.swift in Sources */,
 				D1E2D2812976D04500CEF464 /* SecondVController.swift in Sources */,
+				D184CDCB2987AB0E00A0AE1C /* SchoolSection.swift in Sources */,
 				D1B68623297EDDE200998587 /* DataError.swift in Sources */,
 				D1D9DAC22913E6B60021DF57 /* SceneDelegate.swift in Sources */,
 			);

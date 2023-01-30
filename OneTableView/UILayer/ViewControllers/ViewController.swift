@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         collectionView.backgroundColor = .white
         collectionView.alwaysBounceVertical = true
         collectionView.register(SchoolCollectionViewCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
+        collectionView.register(SchoolSectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.sectionHeaderIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -210,22 +211,39 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource {
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader ,
+           let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier:  Constants.sectionHeaderIdentifier, for: indexPath) as? SchoolSectionHeaderView {
+            sectionHeader.headerLabel.text =
+            schoolsViewModel.schoolSectionsList?[indexPath.section].city
+            return sectionHeader
+            
+        }
+        
+        return UICollectionReusableView()
+        
+    }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? SchoolCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        let schools = schoolsViewModel.schools[indexPath.item]
+        if let schoolSection = schoolsViewModel.schoolSectionsList?[indexPath.section] {
+        let schools = schoolSection.schools[indexPath.item]
         cell.populate(schools)
+        }
         return cell
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return schoolsViewModel.schools.count
+        return schoolsViewModel.schoolSectionsList?[section].schools.count ?? 0
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return schoolsViewModel.schoolSectionsList?.count ?? 1
     }
 }
 
@@ -235,3 +253,5 @@ extension ViewController: UICollectionViewDelegate {
         
     }
 }
+
+
