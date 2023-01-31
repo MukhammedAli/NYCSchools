@@ -139,7 +139,7 @@ class ViewController: UIViewController {
 //            }
 //        }
         view.backgroundColor = .systemBackground
-        title = "Welcome project"
+        title = "NYC Schools"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(button)
         bottomCustomButton.setupButton()
@@ -250,7 +250,9 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let schools = schoolsViewModel.schoolSectionsList?[indexPath.section].schools[indexPath.item] {
+            
+        }
     }
 }
 

@@ -11,3 +11,5 @@ struct SchoolSection {
     let city: String
     var schools: [School]
 }
+
+

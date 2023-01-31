@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		92CD6423FCFF66CEE86A8FAC /* Pods_OneTableView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 676C01E01EF47ADA3DE873D8 /* Pods_OneTableView.framework */; };
 		B6C8259D37E43F47848C9484 /* Pods_OneTableViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505FC73FB1CFF9F4A08A2650 /* Pods_OneTableViewTests.framework */; };
+		D105B09C29882131001218DF /* SchoolDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105B09B29882131001218DF /* SchoolDetailsViewController.swift */; };
+		D105B09E298821C2001218DF /* SchoolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105B09D298821C2001218DF /* SchoolDetailsViewModel.swift */; };
+		D105B0A029890BDA001218DF /* SchoolDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105B09F29890BDA001218DF /* SchoolDetailsCollectionViewCell.swift */; };
+		D105B0A229891D4E001218DF /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105B0A129891D4E001218DF /* LaunchView.swift */; };
 		D173508F2982C1C5007D8C27 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D173508E2982C1C5007D8C27 /* CustomButton.swift */; };
 		D184180A2918C0E800D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
 		D184180B2918C0E900D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
@@ -59,6 +63,10 @@
 		7B0B7593BC0E2B0426761528 /* Pods-OneTableView-OneTableViewUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneTableView-OneTableViewUITests.release.xcconfig"; path = "Target Support Files/Pods-OneTableView-OneTableViewUITests/Pods-OneTableView-OneTableViewUITests.release.xcconfig"; sourceTree = "<group>"; };
 		899F2D39EA682B0864C291B3 /* Pods-OneTableView-OneTableViewUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneTableView-OneTableViewUITests.debug.xcconfig"; path = "Target Support Files/Pods-OneTableView-OneTableViewUITests/Pods-OneTableView-OneTableViewUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE48EA134439BEF8BA1AC3B0 /* Pods-OneTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneTableView.debug.xcconfig"; path = "Target Support Files/Pods-OneTableView/Pods-OneTableView.debug.xcconfig"; sourceTree = "<group>"; };
+		D105B09B29882131001218DF /* SchoolDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewController.swift; sourceTree = "<group>"; };
+		D105B09D298821C2001218DF /* SchoolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewModel.swift; sourceTree = "<group>"; };
+		D105B09F29890BDA001218DF /* SchoolDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		D105B0A129891D4E001218DF /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		D173508E2982C1C5007D8C27 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolCollectionViewCell.swift; sourceTree = "<group>"; };
 		D184CDCA2987AB0E00A0AE1C /* SchoolSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSection.swift; sourceTree = "<group>"; };
@@ -138,6 +146,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D105B0A329894F34001218DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D10C981A297EB9B900B0D2C8 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +177,7 @@
 				D173508E2982C1C5007D8C27 /* CustomButton.swift */,
 				D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */,
 				D1A1D8712987E828003AC5EB /* SchoolsSectionHeaderView.swift */,
+				D105B09F29890BDA001218DF /* SchoolDetailsCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,9 +195,11 @@
 		D1B6861D297ECB1B00998587 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D105B0A129891D4E001218DF /* LaunchView.swift */,
 				D1E2D2822978458A00CEF464 /* ThirdController.swift */,
 				D1E2D2802976D04500CEF464 /* SecondVController.swift */,
 				D1D9DAC32913E6B60021DF57 /* ViewController.swift */,
+				D105B09B29882131001218DF /* SchoolDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B68628298006F900998587 /* SchoolsViewModel.swift */,
+				D105B09D298821C2001218DF /* SchoolDetailsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -228,6 +247,7 @@
 		D1D9DABE2913E6B60021DF57 /* OneTableView */ = {
 			isa = PBXGroup;
 			children = (
+				D105B0A329894F34001218DF /* Resources */,
 				D1B6861C297ECB0700998587 /* UILayer */,
 				D10C981A297EB9B900B0D2C8 /* DataLayer */,
 				D1D9DABF2913E6B60021DF57 /* AppDelegate.swift */,
@@ -496,15 +516,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B68629298006F900998587 /* SchoolsViewModel.swift in Sources */,
+				D105B09E298821C2001218DF /* SchoolDetailsViewModel.swift in Sources */,
 				D1D9DAC42913E6B60021DF57 /* ViewController.swift in Sources */,
 				D1B68621297ECDCC00998587 /* SchoolDirectoryAPI.swift in Sources */,
+				D105B0A029890BDA001218DF /* SchoolDetailsCollectionViewCell.swift in Sources */,
 				D1A1D8722987E828003AC5EB /* SchoolsSectionHeaderView.swift in Sources */,
 				D1E2D2832978458A00CEF464 /* ThirdController.swift in Sources */,
+				D105B0A229891D4E001218DF /* LaunchView.swift in Sources */,
 				D1D9DAC02913E6B60021DF57 /* AppDelegate.swift in Sources */,
 				D1B68626297EDE1600998587 /* School.swift in Sources */,
 				D1890FCB2917CCA50042E867 /* Joke.swift in Sources */,
 				D173508F2982C1C5007D8C27 /* CustomButton.swift in Sources */,
 				D184CDC929868EA300A0AE1C /* SchoolCollectionViewCell.swift in Sources */,
+				D105B09C29882131001218DF /* SchoolDetailsViewController.swift in Sources */,
 				D1E2D2812976D04500CEF464 /* SecondVController.swift in Sources */,
 				D184CDCB2987AB0E00A0AE1C /* SchoolSection.swift in Sources */,
 				D1B68623297EDDE200998587 /* DataError.swift in Sources */,
