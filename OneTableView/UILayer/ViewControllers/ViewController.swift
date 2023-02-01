@@ -251,7 +251,9 @@ extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let schools = schoolsViewModel.schoolSectionsList?[indexPath.section].schools[indexPath.item] {
-            
+            let schoolDetialsViewController = SchoolDetailsViewController()
+            schoolDetialsViewController.viewModel = SchoolDetailsViewModel(school: schools)
+            navigationController?.pushViewController(schoolDetialsViewController, animated: true)
         }
     }
 }

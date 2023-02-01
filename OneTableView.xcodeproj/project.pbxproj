@@ -146,13 +146,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D105B0A329894F34001218DF /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		D10C981A297EB9B900B0D2C8 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,7 +240,6 @@
 		D1D9DABE2913E6B60021DF57 /* OneTableView */ = {
 			isa = PBXGroup;
 			children = (
-				D105B0A329894F34001218DF /* Resources */,
 				D1B6861C297ECB0700998587 /* UILayer */,
 				D10C981A297EB9B900B0D2C8 /* DataLayer */,
 				D1D9DABF2913E6B60021DF57 /* AppDelegate.swift */,
