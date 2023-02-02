@@ -13,6 +13,7 @@
 		D105B09E298821C2001218DF /* SchoolDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105B09D298821C2001218DF /* SchoolDetailsViewModel.swift */; };
 		D105B0A029890BDA001218DF /* SchoolDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105B09F29890BDA001218DF /* SchoolDetailsCollectionViewCell.swift */; };
 		D105B0A229891D4E001218DF /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D105B0A129891D4E001218DF /* LaunchView.swift */; };
+		D16C75B5298AC97400EC3EB0 /* SchoolListStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16C75B4298AC97400EC3EB0 /* SchoolListStateView.swift */; };
 		D173508F2982C1C5007D8C27 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D173508E2982C1C5007D8C27 /* CustomButton.swift */; };
 		D184180A2918C0E800D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
 		D184180B2918C0E900D333D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D9DAC32913E6B60021DF57 /* ViewController.swift */; };
@@ -67,6 +68,7 @@
 		D105B09D298821C2001218DF /* SchoolDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsViewModel.swift; sourceTree = "<group>"; };
 		D105B09F29890BDA001218DF /* SchoolDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D105B0A129891D4E001218DF /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		D16C75B4298AC97400EC3EB0 /* SchoolListStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolListStateView.swift; sourceTree = "<group>"; };
 		D173508E2982C1C5007D8C27 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolCollectionViewCell.swift; sourceTree = "<group>"; };
 		D184CDCA2987AB0E00A0AE1C /* SchoolSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSection.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				D184CDC829868EA300A0AE1C /* SchoolCollectionViewCell.swift */,
 				D1A1D8712987E828003AC5EB /* SchoolsSectionHeaderView.swift */,
 				D105B09F29890BDA001218DF /* SchoolDetailsCollectionViewCell.swift */,
+				D16C75B4298AC97400EC3EB0 /* SchoolListStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				D1B68626297EDE1600998587 /* School.swift in Sources */,
 				D1890FCB2917CCA50042E867 /* Joke.swift in Sources */,
 				D173508F2982C1C5007D8C27 /* CustomButton.swift in Sources */,
+				D16C75B5298AC97400EC3EB0 /* SchoolListStateView.swift in Sources */,
 				D184CDC929868EA300A0AE1C /* SchoolCollectionViewCell.swift in Sources */,
 				D105B09C29882131001218DF /* SchoolDetailsViewController.swift in Sources */,
 				D1E2D2812976D04500CEF464 /* SecondVController.swift in Sources */,
@@ -698,6 +702,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R45WMW8LSD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneTableView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -725,6 +730,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R45WMW8LSD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneTableView/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

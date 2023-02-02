@@ -4,7 +4,7 @@
 target 'OneTableView' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire'
-
+  pod 'MBProgressHUD', '~> 1.1.0'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Combine
+import MBProgressHUD
 
 class ViewController: UIViewController {
     
@@ -33,6 +34,8 @@ class ViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     
     private var collectionView: UICollectionView?
+    
+    private var loadingHUD: MBProgressHUD?
     
 
     private func setupCollectionView() {
@@ -59,6 +62,18 @@ class ViewController: UIViewController {
         collectionView.delegate = self
     }
     
+    
+    private func setupLoadingHUD() {
+        guard let collectionView = collectionView else {
+            return
+        }
+        
+        loadingHUD = MBProgressHUD.showAdded(to: collectionView, animated: true)
+        
+        loadingHUD?.label.text = "So far data is loading"
+        loadingHUD?.isUserInteractionEnabled = false
+        loadingHUD?.detailsLabel.text = "Please wait a bit, or try to refresh"
+    }
    
     
     private var button: UIButton = {
@@ -73,11 +88,20 @@ class ViewController: UIViewController {
     
     private func setupBinders() {
         schoolsViewModel.$schools.receive(on: RunLoop.main)
-            .sink { schools in
-               
+            .sink { [weak self] schools in
+    
+                
+                if !schools.isEmpty {
+                    self?.loadingHUD?.hide(animated: true)
                     print("retrieved \(schools.count)")
+                    self?.collectionView?.reloadData()
+                    self?.removeStateView()
+                } else {
+                    self?.showEmptyState()
+                }
+                    
                // self.items = schools
-                    self.collectionView?.reloadData()
+                 //   self.collectionView?.reloadData()
                 
                     
             }
@@ -89,13 +113,25 @@ class ViewController: UIViewController {
 //            }
             .store(in: &cancellables)
         schoolsViewModel.$error.receive(on: RunLoop.main).sink {[weak self] error in
+            guard let self = self else{
+                return
+            }
+            
+          
+            
             if let error = error {
-                let alert = UIAlertController(title: "Error",
-                                              message: "Could not retrieve schools \(error.localizedDescription)",
-                                              preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default)
-                alert.addAction(action)
-               self?.present(alert, animated: true)
+                self.loadingHUD?.hide(animated:true)
+                switch error {
+                case .networkingError(let errorMessage):
+                    self.showErrorState(errorMessage)
+                }
+//                let alert = UIAlertController(title: "Error",
+//                                              message: "Could not retrieve schools \(error.localizedDescription)",
+//                                              preferredStyle: .alert)
+//                let action = UIAlertAction(title: "OK", style: .default)
+//                alert.addAction(action)
+//               self?.present(alert, animated: true)
+                
             }
         }.store(in: &cancellables)
                    
@@ -175,6 +211,14 @@ class ViewController: UIViewController {
         
         setupBinders()
         
+        setupLoadingHUD()
+        
+        loadingHUD?.show(animated: true)
+        
+        
+        
+        
+      
     }
     
     func addActionBlueButton() {
@@ -255,6 +299,26 @@ extension ViewController: UICollectionViewDelegate {
             schoolDetialsViewController.viewModel = SchoolDetailsViewModel(school: schools)
             navigationController?.pushViewController(schoolDetialsViewController, animated: true)
         }
+    }
+}
+
+
+
+extension ViewController {
+    func showErrorState(_ errorMessage: String) {
+        let errorStateView = SchoolListStateView()
+        errorStateView.update(for: .error)
+        collectionView?.backgroundView = errorStateView
+    }
+    
+    func removeStateView() {
+        collectionView?.backgroundView = nil
+    }
+    
+    func showEmptyState() {
+        let emptyStateView = SchoolListStateView()
+        emptyStateView.update(for: .empty)
+        collectionView?.backgroundView = emptyStateView
     }
 }
 
