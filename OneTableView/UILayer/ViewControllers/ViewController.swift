@@ -37,6 +37,8 @@ class ViewController: UIViewController {
     
     private var loadingHUD: MBProgressHUD?
     
+    private let refreshControl = UIRefreshControl()
+    
 
     private func setupCollectionView() {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -215,11 +217,34 @@ class ViewController: UIViewController {
         
         loadingHUD?.show(animated: true)
         
+        setupRefreshControl()
+        
         
         
         
       
     }
+    
+    
+    private func setupRefreshControl() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull it to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        collectionView?.addSubview(refreshControl)
+        
+    }
+        
+        @objc private func refresh( _ sender: AnyObject) {
+            retrieveSchoolData()
+            refreshControl.endRefreshing()
+        }
+        
+        @objc private func retrieveSchoolData() {
+            removeStateView()
+            loadingHUD?.show(animated: true)
+            schoolsViewModel.getSchools()
+        }
+        
+      
     
     func addActionBlueButton() {
         button.addTarget(self, action: #selector(moveNextPage), for: .touchUpInside)
